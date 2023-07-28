@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Test"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/bree_serif"
+        android:id="@+id/itemname"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>

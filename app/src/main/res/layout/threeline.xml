@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="130dp"
+    android:layout_height="match_parent"
+    android:background="@mipmap/slide"
+    android:id="@+id/threeline">
+
+    <ImageView
+        android:layout_width="47dp"
+        android:layout_height="45dp"
+        android:src="@mipmap/ic_launcher_round"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/usericon"
+        android:layout_marginLeft="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="61dp"
+        android:layout_below="@+id/usericon"
+        android:layout_marginTop="5dp"
+        android:id="@+id/username"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Daily Tasks"
+        android:id="@+id/daily"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@+id/daily"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="Today"
+        android:id="@+id/today"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Lists"
+        android:id="@+id/mylists"
+        android:textColor="@color/white"
+        android:layout_below="@+id/today"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+
+        />
+
+</RelativeLayout>

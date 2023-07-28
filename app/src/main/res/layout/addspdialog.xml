@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:background="@mipmap/bluebg">
+
+    <TextView
+        android:id="@+id/adtaskname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Add Task Name:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edttasknam"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="35dp"
+        android:background="@color/orange"
+        android:fontFamily="@font/b612_mono"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/adtaskname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adtaskname"
+        app:layout_constraintTop_toTopOf="@+id/adtaskname" />
+
+    <TextView
+        android:id="@+id/adslot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edttasknam"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Add Slot:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/adtaskname"
+        app:layout_constraintTop_toBottomOf="@+id/adtaskname" />
+
+    <EditText
+        android:id="@+id/edtslot"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="35dp"
+        android:layout_toRightOf="@+id/adslot"
+        android:background="@color/orange"
+        android:fontFamily="@font/b612_mono"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/adslot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adslot"
+        app:layout_constraintTop_toTopOf="@+id/adslot" />
+
+    <Button
+        android:id="@+id/spdone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/teal_700"
+        android:fontFamily="@font/b612_mono"
+        android:text="Done"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtslot" />
+
+    <EditText
+        android:id="@+id/edtitem"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:background="@color/orange"
+        android:fontFamily="@font/b612_mono"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/aditmbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/aditmbtn" />
+
+    <Button
+        android:id="@+id/aditmbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/teal_700"
+        android:fontFamily="@font/b612_mono"
+        android:text="Add Item"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/edtitem"
+        app:layout_constraintTop_toBottomOf="@+id/edtslot" />
+
+    <EditText
+        android:id="@+id/edtnote"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:background="@color/orange"
+        android:fontFamily="@font/b612_mono"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/adnotebtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/adnotebtn" />
+
+    <Button
+        android:id="@+id/adnotebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:backgroundTint="@color/teal_700"
+        android:fontFamily="@font/b612_mono"
+        android:text="Add Note"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/edtnote"
+        app:layout_constraintTop_toBottomOf="@+id/aditmbtn" />
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Close"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adnotebtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

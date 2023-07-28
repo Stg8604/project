@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_200"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/noteitem"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/anonymous_pro"
+        android:text="This is a sample note" />
+
+</RelativeLayout>
