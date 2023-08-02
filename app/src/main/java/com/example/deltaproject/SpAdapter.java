@@ -141,6 +141,35 @@ public class SpAdapter extends RecyclerView.Adapter<ViewHolder> {
                 }
             }
         });
+        holder.clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://localhost:8000/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                Service service = retrofit.create(Service.class);
+                Call<Void> call = service.clear(thisusername,data.get(position).get("task"));
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        int status = response.code();
+                        if (response.isSuccessful()) {
+                            data.remove(data.get(position));
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(context, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Log.d("API", "Error");
+                        System.out.println(t.getMessage());
+                        Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     @Override

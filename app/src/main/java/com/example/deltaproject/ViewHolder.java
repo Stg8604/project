@@ -2,6 +2,7 @@ package com.example.deltaproject;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -9,9 +10,11 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
-    TextView itemname,taskname1,slot,side,itmnam,slotname,slottime,notename,sptaskname,spslot,item1;
-    CardView cardView;
-    Button select,done,spforget,spnotes,forgotselect;
+    TextView itemname,taskname1,slot,side,itmnam,slotname,slottime,notename,sptaskname,spslot,item1,listnames,getitlistname;
+    CardView cardView,itemcard;
+    EditText lstaddedit;
+    Button select,done,spforget,spnotes,forgotselect,clear,lstaddname,adlistdata,deletelistdata,getitmclose;
+    RecyclerView recycleitem;
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
         itemname=itemView.findViewById(R.id.itemname);
@@ -31,5 +34,15 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         spnotes=itemView.findViewById(R.id.spnotes);
         item1=itemView.findViewById(R.id.item1);
         forgotselect=itemView.findViewById(R.id.forgetselect);
+        clear=itemView.findViewById(R.id.clear);
+        lstaddedit=itemView.findViewById(R.id.lstaddedit);
+        lstaddname=itemView.findViewById(R.id.lstaddname);
+        listnames=itemView.findViewById(R.id.listnames);
+        adlistdata=itemView.findViewById(R.id.adlistdata);
+        deletelistdata=itemView.findViewById(R.id.deletelistdata);
+        itemcard=itemView.findViewById(R.id.itemlistcard);
+        getitlistname=itemView.findViewById(R.id.getitlistname);
+        recycleitem=itemView.findViewById(R.id.getitemrecycle);
+        getitmclose=itemView.findViewById(R.id.getitmclose);
     }
 }

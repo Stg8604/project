@@ -3,45 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity5"
-    android:background="@mipmap/projectbg">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/welcomemylist"
+        android:id="@+id/getitlistname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/bungee"
-        android:text="Welcome to Lists!"
-        android:textColor="@color/white"
+
+        android:text="ListName"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclemy"
+        android:id="@+id/getitemrecycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomemylist" />
+        app:layout_constraintTop_toBottomOf="@+id/getitlistname" />
 
     <Button
-        android:id="@+id/addmy"
+        android:id="@+id/getitmclose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/orange"
-        android:text="Add List"
-        android:textSize="10sp"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclemy" />
-
+        app:layout_constraintTop_toBottomOf="@+id/getitemrecycle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

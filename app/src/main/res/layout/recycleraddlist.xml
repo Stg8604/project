@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_marginBottom="10dp"
+    android:background="@color/teal_700">
+
+    <Button
+        android:id="@+id/lstaddname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/teal_200"
+        android:fontFamily="@font/bungee"
+        android:text="Enter ***:"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lstaddedit"
+        app:layout_constraintStart_toEndOf="@+id/lstaddedit"
+        app:layout_constraintTop_toTopOf="@+id/lstaddedit" />
+
+    <EditText
+        android:id="@+id/lstaddedit"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textColorHint="@color/black"
+        android:textAlignment="center"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/design2"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

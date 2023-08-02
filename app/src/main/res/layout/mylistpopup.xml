@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:background="@mipmap/neongreen"
+    >
+
+    <TextView
+        android:id="@+id/gpname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Group Name:"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addgpname"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/bree_serif"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/design2"
+        app:layout_constraintBottom_toBottomOf="@+id/gpname"
+        app:layout_constraintStart_toEndOf="@+id/gpname"
+        app:layout_constraintTop_toTopOf="@+id/gpname" />
+
+    <TextView
+        android:id="@+id/gpcolumn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Add Column Name:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gpname" />
+
+    <EditText
+        android:id="@+id/addgpcolumn"
+        android:layout_width="150dp"
+        android:visibility="gone"
+        android:fontFamily="@font/bree_serif"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_height="30dp"
+        android:background="@drawable/design2"
+        app:layout_constraintBottom_toBottomOf="@+id/gpcolumn"
+        app:layout_constraintEnd_toEndOf="@+id/addgpname"
+        app:layout_constraintTop_toTopOf="@+id/gpcolumn" />
+
+    <Button
+        android:id="@+id/confirmbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Confirm"
+        android:visibility="visible"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gpname" />
+
+    <Button
+        android:id="@+id/addgpbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="Add"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gpcolumn" />
+
+    <Button
+        android:id="@+id/crtable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Done"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addgpbtn" />
+
+    <TextView
+        android:id="@+id/dataselect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/bree_serif"
+        android:text="Select datatype:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/gpcolumn"
+        app:layout_constraintTop_toBottomOf="@+id/gpcolumn" />
+
+    <Spinner
+        android:id="@+id/dataspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dataselect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dataselect" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

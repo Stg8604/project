@@ -2,6 +2,7 @@ package com.example.deltaproject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -125,4 +126,46 @@ public interface Service {
             @Field("item") String item,
             @Field("select") String select
     );
+    @POST("/users/me/clearsptasks")
+    @FormUrlEncoded
+    Call<Void> clear(
+            @Field("username") String username,
+            @Field("task") String task
+    );
+    @POST("/users/me/addmylist")
+    @FormUrlEncoded
+    Call<Void> addlist(
+            @Field("username") String username,
+            @Field("listname") String listname
+    );
+    @POST("/users/me/createmylist")
+    @FormUrlEncoded
+    Call<Void> createlist(
+            @Field("listname") String listname,
+            @Field("columnname") String columnname,
+            @Field("columntype") String columntype
+    );
+    @POST("/users/me/domylist")
+    @FormUrlEncoded
+    Call<Void> getmylist(
+            @Field("username") String username,
+            @Field("listname") String listname,
+            @Field("newlist")List<Object> newlist
+    );
+    @POST("/users/me/mylistcolumns")
+    @FormUrlEncoded
+    Call<ArrayList<HashMap<String,String>>> mylistcolumn(
+            @Field("listname") String listname
+    );
+    @POST("/users/me/namemylist")
+    @FormUrlEncoded
+    Call<ArrayList<HashMap<String,Object>>> namemy(
+            @Field("username") String username
+    );
+    @POST("/users/me/allmylist")
+    @FormUrlEncoded
+    Call<ArrayList<HashMap<String,String>>> names(
+            @Field("username") String username
+    );
+
 }

@@ -126,6 +126,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        MyLists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,MainActivity5.class);
+                startActivity(intent);
+            }
+        });
         dialog.getWindow().setAttributes(layoutParams);
         dialog.show();
     }
