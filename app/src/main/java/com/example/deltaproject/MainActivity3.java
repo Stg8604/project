@@ -65,7 +65,7 @@ public class MainActivity3 extends AppCompatActivity {
                     recycleforget.setAdapter(new ForgetAdapter(content,forget));
                 }
                 else{
-                    Toast.makeText(MainActivity3.this,String.valueOf(status), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity3.this,"Cant Show Tasks", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -87,7 +87,7 @@ public class MainActivity3 extends AppCompatActivity {
                     recycleschedule.setAdapter(new ScheduleAdapter(content,schedule));
                 }
                 else{
-                    Toast.makeText(MainActivity3.this,String.valueOf(status), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity3.this,"Cant Show Schedule", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -113,7 +113,7 @@ public class MainActivity3 extends AppCompatActivity {
                         int status = response.code();
                         if (response.isSuccessful()) {
                         } else {
-                            Toast.makeText(MainActivity3.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity3.this, "Enter Notes Appropriately", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -149,7 +149,7 @@ public class MainActivity3 extends AppCompatActivity {
                         if (response.isSuccessful()) {
 
                         } else {
-                            Toast.makeText(MainActivity3.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity3.this, "Add Sidenote", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override

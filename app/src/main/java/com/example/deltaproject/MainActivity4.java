@@ -64,7 +64,7 @@ public class MainActivity4 extends AppCompatActivity {
                     sprecycle.setLayoutManager(new LinearLayoutManager(MainActivity4.this));
                     sprecycle.setAdapter(new SpAdapter(MainActivity4.this,sptasks));
                 } else {
-                    Toast.makeText(MainActivity4.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity4.this, "Problem Occured,Restart", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -116,7 +116,7 @@ public class MainActivity4 extends AppCompatActivity {
                             edtslot.setText("");
 
                         } else {
-                            Toast.makeText(MainActivity4.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity4.this,"Enter TaskName correctly", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -146,7 +146,7 @@ public class MainActivity4 extends AppCompatActivity {
                             edtitem.setText("");
 
                         } else {
-                            Toast.makeText(MainActivity4.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity4.this, "Error Occurred", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
@@ -174,7 +174,7 @@ public class MainActivity4 extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             edtnote.setText("");
                         } else {
-                            Toast.makeText(MainActivity4.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity4.this,"Note Empty", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
@@ -204,7 +204,7 @@ public class MainActivity4 extends AppCompatActivity {
                             sprecycle.setLayoutManager(new LinearLayoutManager(thus));
                             sprecycle.setAdapter(new SpAdapter(thus,sptasks));
                         } else {
-                            Toast.makeText(MainActivity4.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity4.this,"Could Not Load Tasks", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override

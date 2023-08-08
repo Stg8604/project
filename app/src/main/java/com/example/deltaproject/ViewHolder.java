@@ -2,6 +2,7 @@ package com.example.deltaproject;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -10,11 +11,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
-    TextView itemname,taskname1,slot,side,itmnam,slotname,slottime,notename,sptaskname,spslot,item1,listnames,getitlistname;
+    TextView itemname,taskname1,slot,side,itmnam,slotname,slottime,notename,sptaskname,spslot,item1,listnames,getitlistname,txtcolumn,txtvalue,tskname,timeslot;
     CardView cardView,itemcard;
     EditText lstaddedit;
+    CheckBox checkboxitem;
     Button select,done,spforget,spnotes,forgotselect,clear,lstaddname,adlistdata,deletelistdata,getitmclose;
-    RecyclerView recycleitem;
+    RecyclerView recycleitem,columnrecycle;
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
         itemname=itemView.findViewById(R.id.itemname);
@@ -44,5 +46,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         getitlistname=itemView.findViewById(R.id.getitlistname);
         recycleitem=itemView.findViewById(R.id.getitemrecycle);
         getitmclose=itemView.findViewById(R.id.getitmclose);
+        txtcolumn=itemView.findViewById(R.id.txtcolumn);
+        txtvalue=itemView.findViewById(R.id.txtvalue);
+        columnrecycle=itemView.findViewById(R.id.columnrecycle);
+        tskname=itemView.findViewById(R.id.tskname);
+        timeslot=itemView.findViewById(R.id.timeslot);
+        checkboxitem=itemView.findViewById(R.id.checkboxitem);
     }
 }

@@ -63,7 +63,7 @@ public class MainActivity5 extends AppCompatActivity {
                     recyclemy.setLayoutManager(new LinearLayoutManager(MainActivity5.this));
                     recyclemy.setAdapter(new AddDataAdapter(MainActivity5.this,collectdata));
                 } else {
-                    Toast.makeText(MainActivity5.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity5.this,"Could Not Load My Lists", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -137,7 +137,7 @@ public class MainActivity5 extends AppCompatActivity {
                                         }
                                 });
                             } else {
-                                Toast.makeText(MainActivity5.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity5.this,"Could Not Add", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -176,7 +176,7 @@ public class MainActivity5 extends AppCompatActivity {
                         int status = response.code();
                         if (response.isSuccessful()) {
                         } else {
-                            Toast.makeText(MainActivity5.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity5.this,"Table Could not be created", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -223,7 +223,7 @@ public class MainActivity5 extends AppCompatActivity {
                     recylecolumn.setLayoutManager(new LinearLayoutManager(MainActivity5.this));
                     recylecolumn.setAdapter(new MyListAdapter(MainActivity5.this,datamylist));
                 } else {
-                    Toast.makeText(MainActivity5.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity5.this, "Data could not be added", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -249,7 +249,8 @@ public class MainActivity5 extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             senddata=new ArrayList<>();
                         } else {
-                            Toast.makeText(MainActivity5.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity5.this, "Enter Correctly", Toast.LENGTH_SHORT).show();
+                            senddata=new ArrayList<>();
                         }
                     }
                     @Override
@@ -278,7 +279,7 @@ public class MainActivity5 extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             collectdata=response.body();
                         } else {
-                            Toast.makeText(MainActivity5.this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity5.this,"Error in clearing data", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override

@@ -23,6 +23,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +39,7 @@ public class AddDataAdapter extends RecyclerView.Adapter<ViewHolder> {
     Context context;
     List<HashMap<String,String>> data;
     String dattype;
+    static String curlistname;
     ArrayList<HashMap<String,String>> datamylist=new ArrayList<>();
     ArrayList<HashMap<String,Object>> collectdata=new ArrayList<>();
     public AddDataAdapter(Context context, List<HashMap<String,String>> data) {
@@ -50,12 +53,51 @@ public class AddDataAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        curlistname=data.get(position).get("listname").toString();
         holder.listnames.setText(data.get(position).get("listname").toString());
-
         holder.itemcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                final Dialog dialog = new Dialog(context);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.setContentView(R.layout.getitemlist);
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://localhost:8000/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                Service service = retrofit.create(Service.class);
+                TextView getitlistname=dialog.findViewById(R.id.getitlistname);
+                RecyclerView recycleitem=dialog.findViewById(R.id.getitemrecycle);
+                Button getitmclose=dialog.findViewById(R.id.getitmclose);
+                Call<ArrayList<HashMap<String,String>>> call2 = service.namemy(thisusername);
+                call2.enqueue(new Callback<ArrayList<HashMap<String,String>>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<HashMap<String,String>>> call, Response<ArrayList<HashMap<String,String>>> response) {
+                        int status = response.code();
+                        if (response.isSuccessful()) {
+                            datamylist=response.body();
+                            getitlistname.setText(data.get(position).get("listname"));
+                            recycleitem.setLayoutManager(new LinearLayoutManager(context));
+                            recycleitem.setAdapter(new ItemColumnRecycle(context,datamylist));
+                            getitmclose.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                        } else {
+                            Toast.makeText(context, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<ArrayList<HashMap<String,String>>> call, Throwable t) {
+                        Log.d("API", "Error");
+                        System.out.println(t.getMessage());
+                        Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
             }
         });
         holder.adlistdata.setOnClickListener(new View.OnClickListener() {
@@ -134,12 +176,37 @@ public class AddDataAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.deletelistdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://localhost:8000/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                Service service = retrofit.create(Service.class);
+                Call<Void> call = service.delete(curlistname);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        int status = response.code();
+                        if (response.isSuccessful()) {
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(context, String.valueOf(status), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Log.d("API", "Error");
+                        System.out.println(t.getMessage());
+                        Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
     @Override
     public int getItemCount() {
         return data.size();
+    }
+    private void showdialognew(){
+
     }
 }

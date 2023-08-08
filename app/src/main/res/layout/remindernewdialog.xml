@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:background="@mipmap/dialogbg">
+
+    <EditText
+        android:id="@+id/edtremname"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/textremname"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-5dp"
+        android:textAlignment="center"
+        android:layout_toRightOf="@+id/textremname"
+        android:background="@drawable/btndesign"
+        android:textColor="@color/black" />
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Reminder:"
+        android:textAlignment="center"
+        android:fontFamily="@font/delius"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:id="@+id/textremname"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/remdesign"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Hour:"
+        android:layout_below="@+id/textremname"
+        android:textColor="@color/white"
+        android:fontFamily="@font/delius"
+        android:textStyle="bold"
+        android:id="@+id/hour"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:background="@drawable/remdesign"
+        />
+
+    <EditText
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_alignEnd="@+id/edtremname"
+        android:layout_alignBottom="@+id/hour"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-5dp"
+        android:background="@drawable/btndesign"
+        android:id="@+id/edthour"/>
+    <TextView
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Minute:"
+        android:id="@+id/minute"
+        android:textColor="@color/white"
+        android:layout_below="@+id/hour"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:textAlignment="center"
+        android:background="@drawable/remdesign"
+        />
+
+    <EditText
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/edthour"
+        android:textAlignment="center"
+        android:layout_alignBottom="@+id/minute"
+        android:layout_marginEnd="0dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="-5dp"
+        android:id="@+id/edtminute"
+        android:background="@drawable/btndesign" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="Add Reminder"
+        android:textSize="8sp"
+        android:layout_below="@+id/minute"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/adreminder"
+        android:background="@drawable/btndesign"
+        />
+
+</RelativeLayout>

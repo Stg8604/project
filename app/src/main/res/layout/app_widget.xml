@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.Deltaproject.AppWidget.Container"
+    android:theme="@style/Theme.Deltaproject.AppWidgetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/widgetbg"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List Name"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:id="@+id/checklistname"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/bungee"
+        />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checklistname"
+        android:layout_marginTop="10dp"
+        android:id="@+id/listreminder"
+        />
+
+</RelativeLayout>

@@ -23,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             daysrecycler.setAdapter(new DayAdapter(context,tasklist));
                         }
                         else{
-                            Toast.makeText(MainActivity.this,String.valueOf(status), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Error Occured", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         TextView daily=dialog.findViewById(R.id.daily);
         TextView today=dialog.findViewById(R.id.today);
         TextView MyLists=dialog.findViewById(R.id.mylists);
+        TextView reminders=dialog.findViewById(R.id.ogreminders);
         today.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,MainActivity5.class);
+                startActivity(intent);
+            }
+        });
+        reminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,MainActivity6.class);
                 startActivity(intent);
             }
         });

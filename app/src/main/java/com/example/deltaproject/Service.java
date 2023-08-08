@@ -13,6 +13,11 @@ import retrofit2.http.POST;
 public interface Service {
     @GET("/users/me/")
     Call<ArrayList<String>> getUsers();
+    @POST("/users/me/newusers")
+    @FormUrlEncoded
+    Call<Void> newusers(
+            @Field("username") String username
+    );
     @POST("/token/")
     @FormUrlEncoded
     Call<Data> loginaccess(
@@ -159,7 +164,7 @@ public interface Service {
     );
     @POST("/users/me/namemylist")
     @FormUrlEncoded
-    Call<ArrayList<HashMap<String,Object>>> namemy(
+    Call<ArrayList<HashMap<String,String>>> namemy(
             @Field("username") String username
     );
     @POST("/users/me/allmylist")
@@ -167,5 +172,22 @@ public interface Service {
     Call<ArrayList<HashMap<String,String>>> names(
             @Field("username") String username
     );
-
+    @POST("/users/me/deletemylist")
+    @FormUrlEncoded
+    Call<Void> delete(
+            @Field("listname") String username
+    );
+    @POST("/users/me/reminders")
+    @FormUrlEncoded
+    Call<Void> rem(
+            @Field("username") String username,
+            @Field("name") String name,
+            @Field("hour") Integer hour,
+            @Field("minute") Integer minute
+    );
+    @POST("/users/me/getreminders")
+    @FormUrlEncoded
+    Call<ArrayList<HashMap<String,String>>> getrem(
+            @Field("username") String username
+    );
 }

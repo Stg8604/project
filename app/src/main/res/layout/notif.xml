@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="29dp"
+        android:background="@mipmap/ic_launcher_round"
+        android:id="@+id/appimg"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My App"
+        android:layout_marginTop="5dp"
+        android:id="@+id/myapp"
+        android:layout_toRightOf="@+id/appimg"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is a reminder"
+        android:layout_below="@+id/appimg"
+        android:textSize="18sp"
+        android:id="@+id/reminder"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/reminder"
+        android:layout_centerHorizontal="true"
+        android:text="Close"
+        android:textSize="10sp"
+        android:id="@+id/closenotif"/>
+
+</RelativeLayout>
