@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -32,8 +33,30 @@ public class NotificationService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        Intent notificationIntent = new Intent(getApplicationContext() ,  MainActivity6. class ) ;
+        notificationIntent.putExtra( "fromNotification" , true ) ;
+        notificationIntent.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent. FLAG_ACTIVITY_SINGLE_TOP ) ;
+        PendingIntent pendingIntent = PendingIntent. getActivity ( this, 0 , notificationIntent , 0 ) ;
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService( NOTIFICATION_SERVICE ) ;
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext() , channelid) ;
+        mBuilder.setContentTitle( "My Notification" ) ;
+        mBuilder.setContentIntent(pendingIntent) ;
+        mBuilder.setContentText( "Notification Listener Service Example" ) ;
+        mBuilder.setSmallIcon(R.drawable. ic_launcher_foreground ) ;
+        mBuilder.setAutoCancel( true ) ;
+        if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
+            int importance = NotificationManager. IMPORTANCE_HIGH ;
+            NotificationChannel notificationChannel = new
+                    NotificationChannel(channelid , "NOTIFICATION_CHANNEL_NAME" , importance) ;
+            mBuilder.setChannelId(channelid) ;
+            assert mNotificationManager != null;
+            mNotificationManager.createNotificationChannel(notificationChannel) ;
+        }
+        assert mNotificationManager != null;
+        mNotificationManager.notify(( int ) System. currentTimeMillis () , mBuilder.build()) ;
+        throw new UnsupportedOperationException( "Not yet implemented" ) ;
     }
+
 
     private void showCustomNotification() {
         /*
@@ -79,7 +102,7 @@ public class NotificationService extends Service {
                 .setContent(remoteViews)
                 .setAutoCancel(true);
         // Set the main notification click PendingIntent
-
+        Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(notifid, builder.build());
 

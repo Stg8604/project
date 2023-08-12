@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 
 public interface Service {
     @GET("/users/me/")
-    Call<ArrayList<String>> getUsers();
+        Call<ArrayList<String>> getUsers();
     @POST("/users/me/newusers")
     @FormUrlEncoded
     Call<Void> newusers(

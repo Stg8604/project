@@ -54,7 +54,7 @@ public class MainActivity6 extends AppCompatActivity {
         createreminder=findViewById(R.id.remindercreate);
         recyclereminder.setLayoutManager(new LinearLayoutManager(context));
         recyclereminder.setAdapter(new ReminderAdapter(context,getrem));
-        scheduleNotification(8,4);
+        scheduleNotification(15,44);
         createreminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,23 +135,36 @@ public class MainActivity6 extends AppCompatActivity {
     }
     private void scheduleNotification(int hour,int minute) {
         // Get the current time
+        /*
         Calendar now = Calendar.getInstance();
 
         // Set the desired time for the notification
         Calendar notificationTime = Calendar.getInstance();
         notificationTime.set(Calendar.HOUR_OF_DAY, hour);
+        Toast.makeText(this, String.valueOf(hour), Toast.LENGTH_SHORT).show();
         notificationTime.set(Calendar.MINUTE, minute);
+        Toast.makeText(this, String.valueOf(minute), Toast.LENGTH_SHORT).show();
         notificationTime.set(Calendar.SECOND, 0);
         if (now.after(notificationTime)) {
             notificationTime.add(Calendar.DAY_OF_YEAR, 1);
         }
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReciever.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
         if (alarmManager != null) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, notificationTime.getTimeInMillis(), pendingIntent);
-        }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, notificationTime.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
+        }*/
+        Intent myIntent = new Intent(getApplicationContext() , AlarmReciever. class ) ;
+        AlarmManager alarmManager = (AlarmManager) getSystemService( ALARM_SERVICE ) ;
+        PendingIntent pendingIntent = PendingIntent. getService ( this, 0 , myIntent , PendingIntent.FLAG_MUTABLE ) ;
+        Calendar calendar = Calendar. getInstance () ;
+        calendar.set(Calendar. SECOND , 15 ) ;
+        calendar.set(Calendar. MINUTE , 55 ) ;
+        calendar.set(Calendar. HOUR , 0 ) ;
+        calendar.set(Calendar. AM_PM , Calendar. AM ) ;
+        calendar.add(Calendar. DAY_OF_MONTH , 1 ) ;
+        alarmManager.setRepeating(AlarmManager. RTC_WAKEUP , calendar.getTimeInMillis() , 1000 * 60 * 60 * 24 , pendingIntent) ;
+    }
     }
 
 
-}

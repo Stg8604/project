@@ -1,6 +1,7 @@
 package com.example.deltaproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,7 +35,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationFragment.FragmentListener {
     private Spinner spinner;
     private ImageView menu,settings;
     static String thisusername;
@@ -42,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<HashMap<String,String>> tasklist;
     static Context context;
     static String day;
+    public NavigationFragment naviFragment;
+    private static String changetag="change";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         spinner=findViewById(R.id.datspinner);
         menu=findViewById(R.id.menu);
         settings=findViewById(R.id.settings);
@@ -60,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
         context=getApplicationContext();
         thisusername=getIntent().getStringExtra("username");
         daysrecycler=findViewById(R.id.recycletask);
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        naviFragment=(NavigationFragment) fragmentManager.findFragmentByTag(changetag);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentManager.beginTransaction().add(R.id.slidefragment,naviFragment,changetag).commit();
+            }
+        });
         ArrayAdapter<String> dayadapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,daysspinner);
         spinner.setAdapter(dayadapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -100,12 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showdialog1();
-            }
-        });
+
     }
     private void showdialog1(){
         getWindow().setEnterTransition(new Slide());
@@ -145,5 +152,28 @@ public class MainActivity extends AppCompatActivity {
         });
         dialog.getWindow().setAttributes(layoutParams);
         dialog.show();
+    }
+
+    @Override
+    public void moveactivity() {
+
+    }
+
+    @Override
+    public void todayactivity() {
+        Intent intent=new Intent(MainActivity.this,MainActivity3.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void mylistsactivity() {
+        Intent intent=new Intent(MainActivity.this,MainActivity4.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void reminderactivity() {
+        Intent intent=new Intent(MainActivity.this,MainActivity5.class);
+        startActivity(intent);
     }
 }

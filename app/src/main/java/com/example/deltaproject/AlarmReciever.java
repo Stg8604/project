@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -35,11 +36,11 @@ public class AlarmReciever extends BroadcastReceiver {
         PendingIntent snoozePendingIntent = PendingIntent.getBroadcast(context, 0, snoozeIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.closenotif, snoozePendingIntent);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "reminder_channel")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelid)
                 .setCustomContentView(remoteViews)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
-
+        Toast.makeText(context, "doneyes", Toast.LENGTH_SHORT).show();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(notifid, builder.build());
     }

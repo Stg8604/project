@@ -13,6 +13,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.transition.Slide;
@@ -42,6 +43,7 @@ public class MainActivity2 extends AppCompatActivity {
     private Button newuser,chooseuser;
     ArrayList<String> userslist;
     static Context cont;
+    Button trye;
     static String accesstoken;
     static ArrayList<HashMap<String,String>> datalist=new ArrayList<>();
     @Override
@@ -50,6 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         newuser=findViewById(R.id.newuserbtn);
         chooseuser=findViewById(R.id.chooseuser);
+        trye=findViewById(R.id.ee);
         cont=getApplicationContext();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://localhost:8000/")
@@ -75,6 +78,18 @@ public class MainActivity2 extends AppCompatActivity {
                 Log.d("API","Error");
                 System.out.println(t.getMessage());
                 Toast.makeText(MainActivity2.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        trye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int currentTheme = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                if (currentTheme == Configuration.UI_MODE_NIGHT_YES) {
+                    setTheme(R.style.AppTheme);
+                } else {
+                    setTheme(R.style.Theme_Deltaproject);
+                }
+                recreate();
             }
         });
         newuser.setOnClickListener(new View.OnClickListener() {
